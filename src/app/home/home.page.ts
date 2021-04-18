@@ -6,11 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  foods = ['Chicken', 'Ramen', 'Spaghetti'];
   text = 'Default HomePage text property';
+  isClicked = false;
   constructor() {}
 
-  onClick() {
-    this.text = 'changed text';
+  onClickButton() {
+    this.isClicked = !this.isClicked;
+
+    this.text = this.isClicked ? 'changed text in home.page.html' : 'Default HomePage text property';
+  }
+
+  onFoodClick(food: string){
+    console.log(food);
   }
 
 }

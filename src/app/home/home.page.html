@@ -1,22 +1,28 @@
-<ion-header [translucent]="true">
+<ion-header no-border>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>Food Picker</ion-title>
+      <ion-buttons slot="primary">
+        <ion-button fill="clear" icon-only (click)="onClickButton()">
+          <ion-icon slot="end" name="play"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="secondary">
+        <ion-button fill="clear" icon-only (click)="onClickButton()">
+          <ion-icon slot="end" name="add"></ion-icon>
+        </ion-button>
+      </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <div class="ion-padding">
+      <strong>{{ text }}</strong>
+    </div>
 
-  <div id="container">
-    <strong>{{ text }}</strong>
-    <ion-button (click)="onClick()" expand="block" shape="round">
-      add func to home.page.ts
-    </ion-button>
-  </div>
+    <ion-list>
+      <ion-item *ngFor="let food of foods" (click)="onFoodClick(food)">
+        {{ food }}
+      </ion-item>
+    </ion-list>
+
 </ion-content>
