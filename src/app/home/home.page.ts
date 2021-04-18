@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NavigationExtras } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +11,7 @@ export class HomePage {
   foods = ['Chicken', 'Ramen', 'Spaghetti'];
   text = 'Default HomePage text property';
   isClicked = false;
-  constructor() {}
+  constructor(public navCtrl: NavController) {}
 
   onClickButton() {
     this.isClicked = !this.isClicked;
@@ -18,7 +20,12 @@ export class HomePage {
   }
 
   onFoodClick(food: string){
-    console.log(food);
+    const navigationExtras: NavigationExtras = {
+      queryParams: {
+        special: JSON.stringify(food)
+      }
+    };
+    this.navCtrl.navigateRoot(['/detail'], navigationExtras);
   }
 
 }
