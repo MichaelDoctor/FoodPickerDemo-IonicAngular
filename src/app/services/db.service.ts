@@ -43,7 +43,7 @@ export class DbService {
 
     // load data from SQLite
     getData() {
-      this.httpClient.get('assets/dump.sql',{
+      this.httpClient.get('assets/setup.sql',{
         responseType: 'text'
       }).subscribe(data => {
         this.sqlPorter.importSqlToDb(this.storage, data)
@@ -62,9 +62,12 @@ export class DbService {
       return this.storage.executeSql('SELECT * from foods', []).then(res => {
         const foods: Food[] = [];
         if(res.rows.length > 0) {
-          res.rows.array.forEach(food => {
-            foods.push({id: food.id, foodName: food.foodName});
-          });
+          for(let i = 0; i < res.rows.length; i++) {
+            foods.push({
+              id: res.rows.item(i).id,
+              foodName: res.rows.item(i).foodName
+            });
+          }
         }
         this.foodList.next(foods);
       });
@@ -87,8 +90,8 @@ export class DbService {
     }
 
     // UPDATE
-    updateFood(id, food: Food) {
-      return this.storage.executeSql(`UPDATE foods SET foodName = ? WHERE id = ${id}`, [food.foodName]).then(_ => {
+    updateFood(id, food: string) {
+      return this.storage.executeSql(`UPDATE foods SET foodName = ? WHERE id = ${id}`, [food]).then(_ => {
         this.getFoods();
       });
     }

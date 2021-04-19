@@ -8,17 +8,24 @@ Creating my Food Picker Demo in Ionic/Angular
 
 ## Create new Angular Project
 	ionic start
+
 ## Run project on browser
 	ionic serve
+
 ## Generate new Page
 	ionic g page detail
-## Build and Run iOS Cordova
+
+## Build and Run iOS Simulator using Cordova (FoodPicker Persistent)
 ### Build
     ionic cordova build ios
 ### List all devices
 	cordova run ios --list
-### Run on Simulator
-	ionic cordova emulate ios --target "iPhone-12-Pro-Max"
+### Run on Simulator on iPhone 12 Pro Max
+	ionic cordova emulate ios --target="012A4879-205F-43BE-9811-1AEB3A364F46"
+
+## Setup and Run App with Cordova in browser (FoodPicker not persistent. Cordova pluggins are intended to interact with Native Device API)
+	ionic cordova platform add browser
+	ionic cordova run browser
 ## Installs and plugins for storage
 	npm install @ionic-native/sqlite @ionic-native/core @ionic-native/sqlite-porter
 
