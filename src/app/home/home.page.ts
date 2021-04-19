@@ -8,24 +8,20 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  foods = ['Chicken', 'Ramen', 'Spaghetti'];
-  text = 'Default HomePage text property';
-  isClicked = false;
+  foods = [{id: 1, foodName: 'Chicken'}, {id: 2, foodName: 'Ramen'},{id: 1, foodName: 'Spaghetti'}];
   constructor(public navCtrl: NavController) {}
 
-  onClickButton() {
-    this.isClicked = !this.isClicked;
+  onAddClick() {}
 
-    this.text = this.isClicked ? 'changed text in home.page.html' : 'Default HomePage text property';
-  }
+  onPlayClick() {}
 
-  onFoodClick(food: string){
+  onFoodClick(id: number, food: string){
     const navigationExtras: NavigationExtras = {
       queryParams: {
         special: JSON.stringify(food)
       }
     };
-    this.navCtrl.navigateRoot(['/detail'], navigationExtras);
+    this.navCtrl.navigateRoot(['/detail',id], navigationExtras);
   }
 
 }

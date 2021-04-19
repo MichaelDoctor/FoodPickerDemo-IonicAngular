@@ -10,10 +10,10 @@
 <ion-content>
   <ng-container>
     <ion-list style="text-align:center" class="button-container">
-      <ion-button expand="block" fill="clear" color="transparent" class="detail-button-text">
+      <ion-button expand="block" fill="clear" color="transparent" class="detail-button-text" (click)="onEditClick()">
         Edit
       </ion-button>
-      <ion-button expand="block" fill="clear" color="transparent" style="color: red;" class="detail-button-text">
+      <ion-button expand="block" fill="clear" color="transparent" style="color: red;" class="detail-button-text" (click)="onDeleteClick()">
         Delete
       </ion-button>
     </ion-list>

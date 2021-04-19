@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.page.html',
@@ -7,7 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DetailPage implements OnInit {
   food: any;
-  constructor(public activatedRoute: ActivatedRoute, private router: Router) {
+  constructor(public activatedRoute: ActivatedRoute) {
    }
 
   ngOnInit() {
@@ -17,5 +17,9 @@ export class DetailPage implements OnInit {
       }
     });
   }
+
+  onEditClick() {}
+
+  onDeleteClick() {}
 
 }
