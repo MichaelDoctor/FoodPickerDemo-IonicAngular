@@ -74,7 +74,7 @@ export class DbService {
     }
 
     // CREATE
-    addFood(foodName) {
+    addFood(foodName: string) {
       return this.storage.executeSql('INSERT INTO foods (foodName) VALUES (?)', [foodName])
       .then(res => {
         this.getFoods();
@@ -82,7 +82,7 @@ export class DbService {
     }
 
     // READ one
-    getFood(id): Promise<Food> {
+    getFood(id: number): Promise<Food> {
       return this.storage.executeSql('SELECT * FROM foods WHERE id = ?', [id]).then(res => ({
           id: res.rows.item(0).id,
           foodName: res.rows.item(0).foodName
@@ -90,14 +90,14 @@ export class DbService {
     }
 
     // UPDATE
-    updateFood(id, food: string) {
+    updateFood(id: number, food: string) {
       return this.storage.executeSql(`UPDATE foods SET foodName = ? WHERE id = ${id}`, [food]).then(_ => {
         this.getFoods();
       });
     }
 
     // DELETE
-    deleteFood(id) {
+    deleteFood(id: number) {
       return this.storage.executeSql('DELETE FROM foods WHERE id = ?', [id]).then(_ => {
         this.getFoods();
       });

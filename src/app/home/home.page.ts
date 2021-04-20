@@ -48,7 +48,7 @@ export class HomePage implements OnInit {
           role: 'cancel',
           cssClass: 'secondary'
         }, {
-          text: 'Ok',
+          text: 'OK',
           handler: (data) => {
             this.db.addFood(data.food).then(_ => {
               console.log('Successfully added to db');
