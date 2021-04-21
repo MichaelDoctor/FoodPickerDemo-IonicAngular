@@ -20,7 +20,7 @@ Creating my Food Picker Demo in Ionic/Angular
 	sudo npm i -g cordova
 	sudo npm i -g native-run
 
-## Create new Angular Project
+## Create new Ionic Project
 	ionic start
 
 ## Run project on browser
